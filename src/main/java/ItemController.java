@@ -15,16 +15,17 @@ public class ItemController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        ItemService.create(req.getParameter("name"),req.getParameter("description"));
+
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp);
+        ItemService.update(req.getParameter("ID"),req.getParameter("name"),req.getParameter("description"));
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
+        ItemService.delete(req.getParameter("ID"));
     }
 }
