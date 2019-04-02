@@ -3,7 +3,7 @@ import java.util.Date;
 @Entity
 @Table(name ="ITEM" )
 public class Item {
-    private Long id;
+    private int id;
     private String name;
     private Date dateCreated;
     private Date lastUpdatedDate;
@@ -12,11 +12,11 @@ public class Item {
     @SequenceGenerator(name = "item_sq", sequenceName = "ITEM_SK", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ITEM_SK")
     @Column(name = "ID",unique = true,nullable = false)
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     @Column(name = "NAME")
