@@ -29,17 +29,19 @@ public class ItemDAO {
         return object;
     }
 
-    public  void delete(Item object) {
+    public  void deleteById(int id) {
         Session session = null;
         Transaction tr = null;
         try {
             session = createSessionFactory().openSession();
             tr = session.getTransaction();
             tr.begin();
-            session.delete(object);
-
+            Item persistentInstance = session.load(Item.class, id);
+            if (persistentInstance != null) {
+                session.delete(persistentInstance);
+                System.out.println("Delete is done");
+            }
             tr.commit();
-            System.out.println("Delete is done");
         } catch (Exception e) {
             System.err.println("Delete is failed");
             System.err.println(e.getMessage());
@@ -60,7 +62,7 @@ public class ItemDAO {
             tr.begin();
             session.update(object);
             tr.commit();
-            System.err.println("Update is done");
+            System.out.println("Update is done");
         } catch (Exception e) {
             System.err.println("Update is failed");
             System.err.println(e.getMessage());
@@ -74,7 +76,7 @@ public class ItemDAO {
         return object;
     }
 
-    public Item findById(long id){
+    public Item findById(int id){
         Session session=null;
         try {
             session = createSessionFactory().openSession();

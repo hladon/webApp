@@ -9,7 +9,7 @@ public class Item {
     private Date lastUpdatedDate;
     private String description;
     @Id
-    @SequenceGenerator(name = "item_sq", sequenceName = "ITEM_SK", allocationSize = 1)
+    @SequenceGenerator(name = "ITEM_SK", sequenceName = "ITEM_SK", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ITEM_SK")
     @Column(name = "ID",unique = true,nullable = false)
     public int getId() {

@@ -20,12 +20,7 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
+
     <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
 
     <dependency>
@@ -40,14 +35,15 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.2.12.Final</version>
-      <scope>provided</scope>
+      <scope>compile</scope>
+
     </dependency>
 
     <dependency>
       <groupId>com.oracle</groupId>
       <artifactId>ojdbc8</artifactId>
       <version>12.2.0.1</version>
-      <scope>provided</scope>
+      <scope>compile</scope>
     </dependency>
 
 

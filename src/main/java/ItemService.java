@@ -12,11 +12,12 @@ public class ItemService {
         itemDAO.save(item);
     }
     public static String read(String param){
-        Item item=itemDAO.findById(Long.getLong(param));
+        int id=Integer.parseInt(param);
+        Item item=itemDAO.findById(id);
         return item.toString();
     }
     public static void update(String id,String name,String description){
-        Item item=itemDAO.findById(Long.valueOf(id));
+        Item item=itemDAO.findById(Integer.parseInt(id));
         item.setName(name);
         item.setDescription(description);
         item.setLastUpdatedDate(new Date());
@@ -24,7 +25,6 @@ public class ItemService {
 
     }
     public static void delete(String id){
-
-        itemDAO.delete(itemDAO.findById(Long.valueOf(id)));
+        itemDAO.deleteById(Integer.parseInt(id));
     }
 }
